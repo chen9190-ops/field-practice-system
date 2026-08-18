@@ -1,0 +1,136 @@
+.checkin-observation-card__layer {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px 12px calc(88px + env(safe-area-inset-bottom));
+  background: rgba(54, 50, 37, .2);
+}
+
+.checkin-observation-card {
+  position: relative;
+  width: 100%;
+  max-height: min(520px, calc(100% - 80px));
+  overflow-y: auto;
+  padding: 25px 22px 22px;
+  border: 1px solid rgba(143, 127, 87, .34);
+  border-radius: 22px 22px 16px 16px;
+  color: #4f5144;
+  background:
+    var(--checkin-observation-card-bg) center / 100% 100% no-repeat,
+    rgba(255, 249, 226, .98);
+  box-shadow: 0 -7px 24px rgba(66, 59, 39, .22);
+}
+
+.checkin-observation-card__close {
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #68634f;
+  background: rgba(231, 224, 197, .88);
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.checkin-observation-card__eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #bb6d2d;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.checkin-observation-card h2 {
+  margin: 0 42px 15px 0;
+  color: #3f4437;
+  font-size: 20px;
+}
+
+.checkin-observation-card dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.checkin-observation-card dl div {
+  padding-top: 9px;
+  border-top: 1px dashed rgba(139, 121, 79, .35);
+}
+
+.checkin-observation-card dt {
+  margin-bottom: 4px;
+  color: #7d754f;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.checkin-observation-card dd {
+  margin: 0;
+  color: #575b4b;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.checkin-observation-card figure {
+  margin: 14px 0 0;
+  padding: 7px;
+  border: 1px solid rgba(139, 121, 79, .28);
+  border-radius: 14px;
+  background: rgba(246, 238, 211, .75);
+}
+
+.checkin-observation-card figure img {
+  display: block;
+  width: 100%;
+  max-height: 230px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.checkin-observation-card__empty-photo {
+  margin: 14px 0 0;
+  padding: 16px;
+  border: 1px dashed rgba(139, 121, 79, .3);
+  border-radius: 13px;
+  color: #8a806a;
+  background: rgba(246, 238, 211, .52);
+  font-size: 12px;
+  text-align: center;
+}
+
+.checkin-observation-card__ai {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 15px;
+  border: 1px solid rgba(93, 122, 58, .55);
+  border-radius: 13px;
+  color: #fffbea;
+  background: linear-gradient(#86a958, #6f913f);
+  box-shadow: 0 4px 10px rgba(91, 111, 56, .2);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.checkin-observation-card__ai-waiting {
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  margin: 15px 0 0;
+  border: 1px dashed rgba(126, 109, 70, .38);
+  border-radius: 13px;
+  color: #81775d;
+  background: rgba(239, 232, 207, .62);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-align: center;
+}

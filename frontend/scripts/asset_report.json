@@ -1,0 +1,591 @@
+{
+  "summary": {
+    "formal": 26,
+    "placeholders": 15,
+    "passed": 41,
+    "failed": 0
+  },
+  "assets": [
+    {
+      "filename": "background/bg_main.png",
+      "kind": "formal",
+      "width": 1576,
+      "height": 998,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        1576,
+        998
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "buttons/btn_primary.png",
+      "kind": "formal",
+      "width": 557,
+      "height": 126,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        551,
+        120
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "cards/card_activity.png",
+      "kind": "formal",
+      "width": 586,
+      "height": 136,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        586,
+        136
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "cards/card_large.png",
+      "kind": "formal",
+      "width": 702,
+      "height": 264,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        702,
+        264
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "cards/card_progress.png",
+      "kind": "formal",
+      "width": 602,
+      "height": 101,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        602,
+        101
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "cards/card_records.png",
+      "kind": "formal",
+      "width": 564,
+      "height": 132,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        564,
+        132
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "cards/card_signin.png",
+      "kind": "formal",
+      "width": 584,
+      "height": 136,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        584,
+        136
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "cards/card_with_map.png",
+      "kind": "formal",
+      "width": 602,
+      "height": 172,
+      "mode": "RGB",
+      "hasAlpha": false,
+      "visibleBoundingBox": [
+        0,
+        0,
+        602,
+        172
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_flower.png",
+      "kind": "formal",
+      "width": 679,
+      "height": 548,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        673,
+        542
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_grass.png",
+      "kind": "formal",
+      "width": 836,
+      "height": 592,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        830,
+        586
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_mushroom.png",
+      "kind": "formal",
+      "width": 646,
+      "height": 548,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        640,
+        542
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_plant.png",
+      "kind": "formal",
+      "width": 632,
+      "height": 441,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        626,
+        435
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_rock.png",
+      "kind": "formal",
+      "width": 744,
+      "height": 504,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        738,
+        498
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_ruin.png",
+      "kind": "formal",
+      "width": 891,
+      "height": 580,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        885,
+        574
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_sign.png",
+      "kind": "formal",
+      "width": 683,
+      "height": 453,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        677,
+        447
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_default_1.png",
+      "kind": "formal",
+      "width": 608,
+      "height": 702,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        602,
+        696
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "navigation/nav_home.png",
+      "kind": "formal",
+      "width": 487,
+      "height": 443,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        481,
+        437
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "navigation/nav_map.png",
+      "kind": "formal",
+      "width": 417,
+      "height": 369,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        411,
+        363
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "navigation/nav_observe.png",
+      "kind": "formal",
+      "width": 454,
+      "height": 404,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        448,
+        398
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "navigation/nav_profile.png",
+      "kind": "formal",
+      "width": 314,
+      "height": 356,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        308,
+        350
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "navigation/nav_record.png",
+      "kind": "formal",
+      "width": 419,
+      "height": 507,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        413,
+        501
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "navigation/nav_report.png",
+      "kind": "formal",
+      "width": 441,
+      "height": 511,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        435,
+        505
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "progress/progress_vine.png",
+      "kind": "formal",
+      "width": 329,
+      "height": 72,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        323,
+        66
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "tags/tag_done.png",
+      "kind": "formal",
+      "width": 851,
+      "height": 573,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        845,
+        567
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "tags/tag_new.png",
+      "kind": "formal",
+      "width": 767,
+      "height": 423,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        761,
+        417
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "tags/tag_progress.png",
+      "kind": "formal",
+      "width": 898,
+      "height": 569,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": [
+        6,
+        6,
+        892,
+        563
+      ],
+      "isFullyTransparent": false,
+      "status": "pass"
+    },
+    {
+      "filename": "decoration/dec_stone.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_backpack.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_default_2.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_default_3.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_focus_1.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_focus_2.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_focus_3.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_sit.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "frog/frog_wave.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "icons/icon_clipboard.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "icons/icon_clover.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "icons/icon_mail.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "icons/icon_map.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "icons/icon_notebook.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    },
+    {
+      "filename": "icons/icon_search.png",
+      "kind": "placeholder",
+      "width": 16,
+      "height": 16,
+      "mode": "RGBA",
+      "hasAlpha": true,
+      "visibleBoundingBox": null,
+      "isFullyTransparent": true,
+      "status": "pass"
+    }
+  ]
+}

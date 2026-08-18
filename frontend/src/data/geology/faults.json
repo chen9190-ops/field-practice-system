@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "测试断层一"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[114.268, 30.574], [114.291, 30.590], [114.318, 30.607], [114.347, 30.625]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "测试断层二"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[114.287, 30.632], [114.306, 30.612], [114.329, 30.594], [114.359, 30.576]]
+      }
+    }
+  ]
+}

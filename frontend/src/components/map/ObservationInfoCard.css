@@ -1,0 +1,215 @@
+.observation-card {
+  position: absolute;
+  right: 14px;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  left: 14px;
+  z-index: 25;
+  height: 60px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 121, 79, .38);
+  border-radius: 18px;
+  background: var(--map-paper, #f8f1d9);
+  filter: drop-shadow(0 9px 20px rgba(65, 58, 40, .2));
+  transition: height 220ms ease;
+}
+
+.observation-card.is-expanded {
+  height: 208px;
+  background:
+    var(--observation-card-bg) center / 100% 100% no-repeat,
+    var(--map-paper, #f8f1d9);
+}
+
+.observation-card__toggle {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 20px;
+  border: 0;
+  color: var(--map-text, #34332d);
+  background: transparent;
+  cursor: pointer;
+}
+
+.observation-card__summary {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.observation-card__summary strong {
+  overflow: hidden;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.observation-card__summary span {
+  flex: 0 0 auto;
+  color: #77725e;
+  font-size: 12px;
+}
+
+.observation-card__arrow {
+  flex: 0 0 auto;
+  color: #6f773f;
+  font-size: 22px;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 220ms ease;
+}
+
+.observation-card.is-expanded .observation-card__arrow {
+  transform: rotate(180deg);
+}
+
+.observation-card__content {
+  height: 148px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 106px;
+  align-items: end;
+  gap: 12px;
+  padding: 8px 22px 20px;
+}
+
+.observation-card__copy {
+  min-width: 0;
+  align-self: start;
+}
+
+.observation-card__eyebrow,
+.observation-card__empty span {
+  display: block;
+  margin-bottom: 9px;
+  color: #6f773f;
+  font-size: 13px;
+}
+
+.observation-card h2 {
+  margin: 0 0 12px;
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.observation-card h2 small {
+  font-size: .8em;
+  font-weight: 600;
+}
+
+.observation-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 15px;
+  font-size: 13px;
+}
+
+.observation-card__track-note,
+.observation-card__feedback {
+  margin: 9px 0 0;
+  color: #77725e;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.observation-card__feedback { color: #67823e; white-space: pre-line; }
+.observation-card__feedback.is-error { color: #a55b38; }
+
+.observation-card__offline-checkin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(160, 119, 48, .25);
+  border-radius: 12px;
+  padding: 9px 11px;
+  color: #596b43;
+  background: rgba(250, 239, 199, .7);
+}
+
+.observation-card__offline-checkin strong { font-size: 13px; }
+.observation-card__offline-checkin span { color: #73705e; font-size: 11px; }
+.observation-card__offline-checkin em {
+  margin-left: auto;
+  border-radius: 9px;
+  padding: 3px 7px;
+  color: #835f23;
+  background: #f0d995;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.observation-card__checkin {
+  position: relative;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 0;
+  color: #fff9e9;
+  background: var(--auto-checkin-bg) center / 100% 100% no-repeat;
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(68, 54, 27, .35);
+}
+
+.observation-card__checkin:disabled {
+  cursor: not-allowed;
+  filter: grayscale(.7);
+  opacity: .58;
+}
+
+.observation-card__empty {
+  grid-column: 1 / -1;
+  align-self: center;
+  padding: 12px;
+  text-align: center;
+}
+
+.observation-card__empty--nearby {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 106px;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 0;
+  text-align: left;
+}
+
+.observation-card__empty--nearby span,
+.observation-card__empty--nearby strong {
+  grid-column: 1;
+  margin: 0;
+}
+
+.observation-card__random {
+  grid-row: 1 / 3;
+  grid-column: 2;
+}
+
+.observation-card__empty strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+@media (max-width: 380px) {
+  .observation-card {
+    right: 10px;
+    left: 10px;
+  }
+
+  .observation-card__content {
+    grid-template-columns: minmax(0, 1fr) 94px;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .observation-card h2 { font-size: 16px; }
+}

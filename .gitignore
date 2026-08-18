@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+.vite/
+
+# Logs
+*.log
+
+# Uploads / generated files
+backend/uploads/
+
+# Database / local data
+*.db
+*.sqlite
+*.sqlite3
+backend/venv/
+backend/.venv/

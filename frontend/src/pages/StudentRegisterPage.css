@@ -1,0 +1,213 @@
+.student-register-page {
+  isolation: isolate;
+  overflow-y: auto;
+  background: #eee8d4;
+}
+
+.student-register-page__background,
+.student-register-page__wash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.student-register-page__background {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.student-register-page__wash {
+  z-index: 1;
+  background: rgba(255, 249, 224, .03);
+  pointer-events: none;
+}
+
+.student-register-brand {
+  position: relative;
+  z-index: 3;
+  width: 250px;
+  height: 124px;
+  margin: max(24px, env(safe-area-inset-top)) auto 0;
+}
+
+.student-register-brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.student-register-brand h1 {
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  width: 82%;
+  margin: 0;
+  color: #3e392e;
+  font-size: 23px;
+  letter-spacing: .1em;
+  line-height: 1;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.student-register-form {
+  position: relative;
+  z-index: 3;
+  width: min(90%, 366px);
+  min-height: 655px;
+  margin: -6px auto 32px;
+}
+
+.student-register-form__paper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: drop-shadow(0 8px 12px rgba(72, 63, 41, .16));
+  pointer-events: none;
+}
+
+.student-register-form__content {
+  position: relative;
+  z-index: 1;
+  padding: 38px 28px 28px;
+}
+
+.student-register-form__eyebrow {
+  margin: 0;
+  color: #768557;
+  font-family: "Nunito", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.student-register-form h2 {
+  margin: 4px 0 16px;
+  color: #39362e;
+  font-size: 25px;
+}
+
+.student-register-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px 10px;
+}
+
+.student-register-field {
+  display: grid;
+  gap: 4px;
+  color: #4d483a;
+  font-size: 14px;
+}
+
+.student-register-field > span:first-child {
+  padding-left: 4px;
+}
+
+.student-register-field__control {
+  position: relative;
+  height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.student-register-field__control > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: .94;
+  pointer-events: none;
+}
+
+.student-register-field__control input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0 13px;
+  border: 0;
+  outline: 0;
+  color: #403d34;
+  background: transparent;
+  font: 600 14px/1 "Nunito", "STKaiti", "KaiTi", serif;
+}
+
+.student-register-field__control input::placeholder {
+  overflow: hidden;
+  color: #9a978b;
+  font-family: "ZCOOL KuaiLe", "STKaiti", "KaiTi", serif;
+  font-weight: 400;
+  text-overflow: ellipsis;
+}
+
+.student-register-field__control:focus-within > img {
+  filter: drop-shadow(0 0 3px rgba(108, 132, 67, .4));
+}
+
+.student-register-form__message {
+  min-height: 24px;
+  padding-top: 7px;
+}
+
+.student-register-error {
+  margin: 0;
+  color: #a04438;
+  font-size: 13px;
+  text-align: center;
+}
+
+.student-register-submit {
+  width: 100%;
+  height: 52px;
+  padding: 0 18px 3px;
+  border: 0;
+  color: #fffdf0;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-indent: .18em;
+}
+
+.student-register-submit:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+
+.student-register-login {
+  margin: 14px 0 0;
+  color: #575142;
+  font-size: 15px;
+  text-align: center;
+}
+
+.student-register-login button {
+  padding: 3px 5px;
+  border: 0;
+  color: #718b43;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 360px) {
+  .student-register-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .student-register-form {
+    min-height: 900px;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "period": "侏罗纪",
+        "name": "侏罗纪示例地层"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.281, 30.566], [114.316, 30.570], [114.320, 30.590], [114.286, 30.594], [114.281, 30.566]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "period": "白垩纪",
+        "name": "白垩纪示例地层"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.310, 30.604], [114.348, 30.600], [114.354, 30.628], [114.316, 30.632], [114.310, 30.604]]]
+      }
+    }
+  ]
+}

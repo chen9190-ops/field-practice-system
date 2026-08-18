@@ -1,0 +1,33 @@
+.user-location-marker {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.user-location-arrow {
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  width: 18px;
+  height: 24px;
+  background: #2589d8;
+  clip-path: polygon(50% 0, 100% 100%, 50% 75%, 0 100%);
+  transform: translateX(-50%) rotate(var(--heading, 0deg));
+  transform-origin: 50% 58%;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .28));
+}
+
+.user-location-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #1675bd;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .28);
+}

@@ -1,0 +1,41 @@
+.mobile-page-viewport {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #d7d4c6;
+}
+
+.mobile-page-shell {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  height: 100dvh;
+  min-height: 667px;
+  overflow: hidden;
+  background: #dfe2cd;
+}
+
+@media (min-width: 600px) {
+  .mobile-page-viewport {
+    padding: 12px 0;
+  }
+
+  .mobile-page-shell {
+    width: 390px;
+    height: min(844px, calc(100dvh - 24px));
+    min-height: 0;
+    border-radius: 22px;
+    box-shadow: 0 10px 32px rgba(55, 50, 38, .18);
+  }
+}
+
+@media (max-width: 599px) {
+  .mobile-page-shell {
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    border-radius: 0;
+  }
+}

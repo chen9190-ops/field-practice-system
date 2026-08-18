@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "rock_type": "花岗岩",
+        "color": "#d89b5b"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.272, 30.590], [114.299, 30.588], [114.303, 30.613], [114.278, 30.617], [114.272, 30.590]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "rock_type": "石灰岩",
+        "color": "#7fa3a6"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.301, 30.574], [114.331, 30.578], [114.328, 30.604], [114.304, 30.607], [114.301, 30.574]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "rock_type": "砂岩",
+        "color": "#c9ae62"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[114.331, 30.590], [114.360, 30.586], [114.363, 30.614], [114.338, 30.621], [114.331, 30.590]]]
+      }
+    }
+  ]
+}
