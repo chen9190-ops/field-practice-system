@@ -35,3 +35,9 @@ backend/uploads/
 *.sqlite3
 backend/venv/
 backend/.venv/
+
+# Preview
+.preview
+
+# Preview logs
+scripts/backend.log

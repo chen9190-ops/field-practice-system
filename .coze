@@ -1,0 +1,20 @@
+[project]
+sub_id = "fd26397f"
+name = "field-practice-system"
+project_type = "web"
+entrypoint = "backend/app/main.py"
+
+[preview]
+preview_enable = "enabled"
+
+[dev]
+build = ["bash", "scripts/build.sh"]
+run = ["bash", "scripts/run.sh"]
+
+[deploy]
+build = ["bash", "scripts/deploy_build.sh"]
+run = ["bash", "scripts/deploy_run.sh", "-p", "5000"]
+
+[deploy.profile]
+kind = "service"
+flavor = "web"
