@@ -1,5 +1,6 @@
 import React from "react";
 import { observationInfoCardBg } from "../../assets/map-page";
+import request from "../../api/request";
 import "./CheckinObservationCard.css";
 
 function formatCheckinTime(value) {
@@ -18,7 +19,7 @@ function formatCheckinTime(value) {
 function resolvePhotoUrl(photoUrl) {
   if (!photoUrl) return "";
   if (/^https?:\/\//i.test(photoUrl)) return photoUrl;
-  return `http://localhost:8000/${String(photoUrl).replace(/^\/+/, "")}`;
+  return `${request.defaults.baseURL}/${String(photoUrl).replace(/^\/+/, "")}`;
 }
 
 export function CheckinObservationCard({

@@ -17,18 +17,10 @@ cd "$PROJECT_DIR"
 
 echo "[deploy-build] Installing frontend dependencies..."
 cd frontend
-if command -v pnpm >/dev/null 2>&1; then
-  pnpm install --frozen-lockfile 2>/dev/null || pnpm install
-elif command -v npm >/dev/null 2>&1; then
-  npm ci 2>/dev/null || npm install
-fi
+pnpm install --frozen-lockfile 2>/dev/null || pnpm install
 
 echo "[deploy-build] Building frontend..."
-if command -v pnpm >/dev/null 2>&1; then
-  pnpm build
-else
-  npm run build
-fi
+VITE_API_BASE_URL=/ pnpm run build
 cd "$PROJECT_DIR"
 
 echo "[deploy-build] Build complete"

@@ -4,6 +4,7 @@ import { autoCheckIn, getCheckin } from "../api/checkin";
 import { createAIAnalysis, getObservationRecords } from "../api/observation";
 import { getRoute, getRouteMap } from "../api/route";
 import { getStudentRouteSummary } from "../api/dashboard";
+import request from "../api/request";
 import { backIcon } from "../assets/observation";
 import { BottomNav } from "../components/BottomNav";
 import { MobilePageShell } from "../components/layout/MobilePageShell";
@@ -749,9 +750,9 @@ export function StudentRouteMapPage() {
       if (!analysisId) throw new Error("ANALYSIS_NOT_CREATED");
 
       const photoUrl = createdPhotoUrl
-        ? `http://localhost:8000/${createdPhotoUrl.replace(/^\/+/, "")}`
+        ? `${request.defaults.baseURL}/${createdPhotoUrl.replace(/^\/+/, "")}`
         : activeObservationRecord?.photo_url
-          ? `http://localhost:8000/${String(activeObservationRecord.photo_url).replace(/^\/+/, "")}`
+          ? `${request.defaults.baseURL}/${String(activeObservationRecord.photo_url).replace(/^\/+/, "")}`
           : checkinPhotoPreview;
       const analysisFlow = {
         analysisId,

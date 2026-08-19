@@ -17,9 +17,7 @@ cd "$PROJECT_DIR"
 
 echo "=== Installing student frontend dependencies ==="
 cd frontend
-if [ ! -d "node_modules" ]; then
-  npm install
-fi
+pnpm install
 cd "$PROJECT_DIR"
 
 echo "=== Build complete ==="

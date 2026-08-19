@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { observationInfoCardBg } from "../../assets/map-page";
 import { createAIAnalysis, getAIAnalysis } from "../../api/observation";
+import request from "../../api/request";
 import { useStudentAuth } from "../../context/StudentAuthContext";
 import { useOnlineStatus } from "../../hooks/useOnlineStatus";
 
@@ -21,7 +22,7 @@ function formatCreatedAt(value) {
 function resolvePhotoUrl(photoUrl) {
   if (!photoUrl) return "";
   if (/^https?:\/\//i.test(photoUrl)) return photoUrl;
-  return `http://localhost:8000/${String(photoUrl).replace(/^\/+/, "")}`;
+  return `${request.defaults.baseURL}/${String(photoUrl).replace(/^\/+/, "")}`;
 }
 
 export function StudentObservationInfoCard({ observation, onClose }) {

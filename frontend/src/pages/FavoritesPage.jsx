@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import request from "../api/request";
 import { getObservationRecords, toggleObservationFavorite } from "../api/observation";
 import { getRoute } from "../api/route";
 import {
@@ -33,7 +34,7 @@ function formatObservationTime(value) {
 function resolvePhotoUrl(photoUrl) {
   if (!photoUrl) return "";
   if (/^(https?:|blob:|data:)/i.test(photoUrl)) return photoUrl;
-  return `http://localhost:8000/${String(photoUrl).replace(/^\/+/, "")}`;
+  return `${request.defaults.baseURL}/${String(photoUrl).replace(/^\/+/, "")}`;
 }
 
 function getTypeLabel(observationType) {

@@ -51,6 +51,7 @@ from typing import List, Literal
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.security import create_access_token
 from contextlib import asynccontextmanager
+from fastapi.responses import FileResponse
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -2605,3 +2606,26 @@ def mark_all_student_notifications_as_read(
 
     finally:
         db.close()
+frontend_dist = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+
+if frontend_dist.exists():
+
+    app.mount(
+        "/student/assets",
+        StaticFiles(directory=str(frontend_dist / "assets")),
+        name="student-assets",
+    )
+
+    @app.get("/student")
+    @app.get("/student/")
+    async def serve_student_home():
+        return FileResponse(frontend_dist / "index.html")
+
+    @app.get("/student/{full_path:path}")
+    async def serve_student_frontend(full_path: str):
+        requested_file = frontend_dist / full_path
+
+        if requested_file.exists() and requested_file.is_file():
+            return FileResponse(requested_file)
+
+        return FileResponse(frontend_dist / "index.html")

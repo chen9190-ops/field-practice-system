@@ -31,7 +31,7 @@ import "./styles/global.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <StudentAuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/student">
         <Routes>
           <Route
             path="/"

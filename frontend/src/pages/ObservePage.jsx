@@ -7,6 +7,7 @@ import {
   toggleObservationPin,
 } from "../api/observation";
 import { getStudentRouteSummary } from "../api/dashboard";
+import request from "../api/request";
 import { getPoints } from "../api/route";
 import { BottomNav } from "../components/BottomNav";
 import { MobilePageShell } from "../components/layout/MobilePageShell";
@@ -62,7 +63,7 @@ function formatObservationTime(value) {
 function resolvePhotoUrl(photoUrl) {
   if (!photoUrl) return "";
   if (/^https?:\/\//i.test(photoUrl)) return photoUrl;
-  return `http://localhost:8000/${String(photoUrl).replace(/^\/+/, "")}`;
+  return `${request.defaults.baseURL}/${String(photoUrl).replace(/^\/+/, "")}`;
 }
 
 function getAnalysisStatus(status) {
