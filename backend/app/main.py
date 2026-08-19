@@ -51,7 +51,7 @@ from typing import List, Literal
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.security import create_access_token
 from contextlib import asynccontextmanager
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -161,7 +161,15 @@ ensure_observation_configuration_columns()
 
 @app.get("/")
 def root():
-    return{"message":"野外实习系统后端启动成功"}
+    return RedirectResponse(url="/student/")
+@app.get("/health")
+def health():
+    return {
+        "status": "ok",
+        "message": "野外实习系统后端启动成功"
+    }
+
+
 
 @app.get("/test_db")
 def test_db():
