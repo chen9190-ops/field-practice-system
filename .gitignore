@@ -41,3 +41,5 @@ backend/.venv/
 
 # Preview logs
 scripts/backend.log
+.cozeproj/reduction
+.codegraph
