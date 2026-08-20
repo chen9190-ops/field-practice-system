@@ -7,13 +7,10 @@ cd "$PROJECT_DIR"
 
 echo "=== Installing backend dependencies ==="
 cd backend
-if [ ! -f "venv/bin/activate" ]; then
-  rm -rf venv
-  python3 -m venv venv
-fi
-source venv/bin/activate
-pip install -r requirements.txt -q
-deactivate
+
+# Install to system python directly - venv is excluded from packaging
+python3 -m pip install -r requirements.txt -q
+
 cd "$PROJECT_DIR"
 
 echo "=== Installing student frontend dependencies ==="

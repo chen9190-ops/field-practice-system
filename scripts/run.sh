@@ -17,5 +17,4 @@ export PORT="$EXPOSE_PORT"
 
 echo "=== Starting FastAPI on port $PORT ==="
 cd backend
-source venv/bin/activate
-exec uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
+exec python3 -m uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
