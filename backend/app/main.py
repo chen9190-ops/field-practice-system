@@ -98,7 +98,9 @@ pwd_context = CryptContext(
 
 app.include_router(teacher_router)
 
-uploads_directory = Path(__file__).resolve().parent.parent / "uploads"
+from app.core.upload_dir import get_uploads_root
+
+uploads_directory = get_uploads_root()
 
 app.mount(
     "/uploads",
@@ -1556,9 +1558,9 @@ def upload_photo(observation_id: int, photo: UploadFile = File(...)):
     file_path = f"uploads/{file_name}"  # Save in the 'photos' directory
 
     # Save the uploaded file to the specified path
-    # with open(file_path, "wb") as buffer:
-    #     shutil.copyfileobj(photo.file, buffer)
-    with open (file_path, "wb") as buffer:
+    uploads_directory.mkdir(parents=True, exist_ok=True)
+    saved_photo_path = uploads_directory / file_name
+    with saved_photo_path.open("wb") as buffer:
         shutil.copyfileobj(photo.file, buffer)
 
     db = SessionLocal()

@@ -47,9 +47,10 @@ router = APIRouter(
 
 BACKEND_ROOT = Path(__file__).resolve().parent.parent.parent
 
+from app.core.upload_dir import get_uploads_root
+
 POINT_MATERIAL_UPLOAD_DIR = (
-    BACKEND_ROOT
-    / "uploads"
+    get_uploads_root()
     / "point_materials"
 )
 

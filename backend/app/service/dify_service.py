@@ -20,6 +20,8 @@ for key in [
 from pathlib import Path
 import requests
 
+from app.core.upload_dir import get_uploads_root
+
 
 print("ENTER dify_service")
 
@@ -29,8 +31,7 @@ DIFY_FILE_UPLOAD_URL = "https://api.dify.ai/v1/files/upload"
 
 DIFY_API_KEY = os.getenv("DIFY_API_KEY1")
 
-BACKEND_ROOT = Path(__file__).resolve().parents[2]
-UPLOADS_DIR = BACKEND_ROOT / "uploads"
+UPLOADS_DIR = get_uploads_root()
 
 
 
