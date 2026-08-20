@@ -32,5 +32,13 @@ export PORT
 
 echo "[deploy-run] Starting backend on port $PORT..."
 cd backend
-source venv/bin/activate
-exec uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
+
+if [ ! -f "venv/bin/uvicorn" ]; then
+  echo "[deploy-run] venv missing, creating and installing dependencies..."
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt -q
+  deactivate
+fi
+
+exec venv/bin/uvicorn app.main:app --host 0.0.0.0 --port "$PORT"
