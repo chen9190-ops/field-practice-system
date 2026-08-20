@@ -13,7 +13,7 @@ run = ["bash", "scripts/run.sh"]
 
 [deploy]
 build = ["bash", "scripts/deploy_build.sh"]
-run = ["sh", "-c", "bash scripts/deploy_run.sh -p \"${DEPLOY_RUN_PORT}\""]
+run = ["bash", "scripts/deploy_run.sh"]
 
 [deploy.profile]
 kind = "service"

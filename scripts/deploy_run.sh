@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_DIR"
 
-PORT=5000
+PORT="${DEPLOY_RUN_PORT:-5000}"
 
 usage() {
   echo "Usage: $0 -p <port>"

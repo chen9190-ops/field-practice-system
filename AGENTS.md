@@ -20,8 +20,10 @@ bash scripts/deploy_build.sh
 生产运行使用平台分配端口：
 
 ```bash
-bash scripts/deploy_run.sh -p "$DEPLOY_RUN_PORT"
+bash scripts/deploy_run.sh
 ```
+
+`deploy_run.sh` 会从 `DEPLOY_RUN_PORT` 读取端口；没有注入时才回退到 5000。
 
 服务必须监听 `0.0.0.0`。部署配置位于 `.coze`，不要将平台端口改成固定值。
 
