@@ -226,18 +226,33 @@ export function StudentRouteMap({
     const studentObservationSource = new VectorSource();
     const studentTrackSource = new VectorSource();
     const studentPositionSource = new VectorSource();
+    // VITE_TDT_KEY 缺失时天地图图层无法创建，使用免 key 的 HTTPS 兜底底图
+    // （CartoDB/OSM 数据，WGS84 Web 墨卡托，与现有矢量叠加对齐；
+    //  注：OpenTopoMap/OSM 官方瓦片域在国内网络不可达，不能用作兜底），
+    // 避免生产环境底图空白。
+    const createFallbackBaseLayer = (visible) =>
+      new TileLayer({
+        source: new XYZ({
+          url: "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+          projection: "EPSG:3857",
+          maxZoom: 18,
+          crossOrigin: "anonymous",
+          attributions: "© OpenStreetMap contributors © CARTO",
+        }),
+        visible,
+      });
     const standardBaseLayers = TDT_KEY
       ? [
           new TileLayer({ source: createTiandituSource("vec_w"), visible: true }),
           new TileLayer({ source: createTiandituSource("cva_w"), visible: true }),
         ]
-      : [];
+      : [createFallbackBaseLayer(true)];
     const satelliteBaseLayers = TDT_KEY
       ? [
           new TileLayer({ source: createTiandituSource("img_w"), visible: false }),
           new TileLayer({ source: createTiandituSource("cia_w"), visible: false }),
         ]
-      : [];
+      : [createFallbackBaseLayer(false)];
     const baseLayers = [...standardBaseLayers, ...satelliteBaseLayers];
     const terrainLayer = new TileLayer({
       source: new XYZ({
