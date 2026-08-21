@@ -5,7 +5,7 @@ import { headerSignBg } from "../assets";
 import { recordCardBackground } from "../assets/checkin-records";
 import { autoCheckinButtonBg } from "../assets/map-page";
 import { profileMenuRowBackground } from "../assets/profile-ui";
-import loginFieldBackground from "../assets/student-login/login_field_background_v3.png";
+import loginFieldBackground from "../assets/student-login/login_field_background_v3.webp";
 import { MobilePageShell } from "../components/layout/MobilePageShell";
 import "./StudentRegisterPage.css";
 

@@ -1,8 +1,8 @@
-export { default as observationBackground } from "./background/bg_observation.png";
+export { default as observationBackground } from "./background/bg_observation.webp";
 
-export { default as locationCard } from "./cards/location_card.png";
-export { default as textareaCard } from "./cards/textarea_card.png";
-export { default as uploadCard } from "./cards/upload_card.png";
+export { default as locationCard } from "./cards/location_card.webp";
+export { default as textareaCard } from "./cards/textarea_card.webp";
+export { default as uploadCard } from "./cards/upload_card.webp";
 
 export { default as submitButton } from "./buttons/btn_submit.png";
 

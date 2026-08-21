@@ -1,4 +1,4 @@
-export { default as aiResultBackground } from "./background/bg_ai_result.png";
+export { default as aiResultBackground } from "./background/bg_ai_result.webp";
 export { default as resultCard } from "./cards/card_result.png";
 export { default as photoFrame } from "./cards/photo_frame.png";
 export { default as retakeButton } from "./buttons/btn_retake.png";
@@ -10,7 +10,7 @@ export { default as resultBackIcon } from "./icons/icon_back.png";
 export { default as resultShareIcon } from "./icons/icon_share.png";
 export { default as mineralIcon } from "./icons/icon_mineral.png";
 export { default as formationIcon } from "./icons/icon_formation.png";
-export { default as aiHelperFrog } from "./frog/frog_ai_helper.png";
+export { default as aiHelperFrog } from "./frog/frog_ai_helper.webp";
 export { default as resultDivider } from "./decoration/divider.png";
 export { default as bulletLeaf } from "./decoration/bullet_leaf.png";
 export { default as resultBottomTerrain } from "./decoration/bottom_terrain.png";

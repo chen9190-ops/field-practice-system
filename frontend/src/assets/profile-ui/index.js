@@ -3,7 +3,7 @@ export { default as profilePageBackground } from "./background/page_paper_bg_126
 export { default as profileCardBackground } from "./cards/profile_card_bg.png";
 export { default as profileMenuPanelBackground } from "./cards/menu_panel_bg.png";
 export { default as profileMenuRowBackground } from "./cards/menu_row_bg.png";
-export { default as profileBottomDecoration } from "./decoration/bottom_camp_frog_landscape.png";
+export { default as profileBottomDecoration } from "./decoration/bottom_camp_frog_landscape.webp";
 export { default as profileBackIcon } from "./icons/back.png";
 export { default as profileChevronIcon } from "./icons/chevron_right.png";
 export { default as profileSettingsIcon } from "./icons/settings.png";

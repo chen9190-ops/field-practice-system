@@ -1,6 +1,6 @@
-export { default as checkinBackground } from "./background/bg_checkin_records_1080x2400.png";
+export { default as checkinBackground } from "./background/bg_checkin_records_1080x2400.webp";
 export { default as headerBarBackground } from "./cards/header_bar_bg.png";
-export { default as recordCardBackground } from "./cards/checkin_record_card_bg.png";
+export { default as recordCardBackground } from "./cards/checkin_record_card_bg.webp";
 export { default as backIcon } from "./icons/back.png";
 export { default as calendarIcon } from "./icons/calendar_button.png";
 export { default as observationPointIcon } from "./icons/rock_observation_point.png";
