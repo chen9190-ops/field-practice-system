@@ -1482,6 +1482,62 @@ def get_observation_records_with_latest_analysis(student_id: int):
     finally:
         db.close()
 
+@app.get("/observations/student/{student_id}/favorites") # 获取学生收藏的观察记录（不受当前路线/观察点有效性过滤影响）
+def get_observation_favorites(student_id: int):
+    db = SessionLocal()
+    try:
+        latest_analysis_ids = (
+            db.query(
+                ai_analysis.AiAnalysis.observation_id.label("observation_id"),
+                func.max(ai_analysis.AiAnalysis.id).label("latest_analysis_id")
+            )
+            .group_by(ai_analysis.AiAnalysis.observation_id)
+            .subquery()
+        )
+
+        results = (
+            db.query(Observation, ai_analysis.AiAnalysis)
+            .outerjoin(
+                latest_analysis_ids,
+                Observation.id == latest_analysis_ids.c.observation_id
+            )
+            .outerjoin(
+                ai_analysis.AiAnalysis,
+                ai_analysis.AiAnalysis.id == latest_analysis_ids.c.latest_analysis_id
+            )
+            .filter(
+                Observation.student_id == student_id,
+                Observation.is_favorite == True,
+            )
+            .order_by(
+                Observation.observation_time.desc(),
+                Observation.id.desc(),
+            )
+            .all()
+        )
+
+        return [
+            {
+                "id": observation.id,
+                "student_id": observation.student_id,
+                "route_id": observation.route_id,
+                "point_id": observation.point_id,
+                "observation_type": observation.observation_type,
+                "observation_time": observation.observation_time,
+                "observation_text": observation.observation_text,
+                "photo_url": observation.photo_url,
+                "rock_type": observation.rock_type,
+                "is_favorite": observation.is_favorite,
+                "is_pinned": observation.is_pinned,
+                "analysis_status": analysis.status if analysis else None,
+                "rock_name": analysis.rock_name if analysis else None,
+                "confidence": analysis.confidence if analysis else None,
+            }
+            for observation, analysis in results
+        ]
+    finally:
+        db.close()
+
 @app.put("/observations/{observation_id}/favorite") # 切换观察记录的收藏状态 ？
 def toggle_observation_favorite(observation_id: int):
     db = SessionLocal()

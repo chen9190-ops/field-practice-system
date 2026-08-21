@@ -10,6 +10,10 @@ export function getObservationRecords(student_id) {
     return request.get(`/observations/student/${student_id}/records`);
 }
 
+export function getFavoriteObservationRecords(student_id) {
+    return request.get(`/observations/student/${student_id}/favorites`);
+}
+
 export function toggleObservationFavorite(observation_id) {
     return request.put(`/observations/${observation_id}/favorite`);
 }

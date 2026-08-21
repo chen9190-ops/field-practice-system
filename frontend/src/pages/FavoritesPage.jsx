@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import request from "../api/request";
-import { getObservationRecords, toggleObservationFavorite } from "../api/observation";
+import { getFavoriteObservationRecords, toggleObservationFavorite } from "../api/observation";
 import { getRoute } from "../api/route";
 import {
   profileBackIcon,
@@ -58,7 +58,7 @@ export function FavoritesPage() {
       setLoading(true);
       setError("");
       try {
-        const response = await getObservationRecords(student.id);
+        const response = await getFavoriteObservationRecords(student.id);
         const favorites = (Array.isArray(response.data) ? response.data : []).filter((record) => (
           record.is_favorite === true
           && FAVORITE_OBSERVATION_TYPES.has(record.observation_type)
