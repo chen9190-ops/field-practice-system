@@ -204,7 +204,7 @@ img {
   box-shadow: none;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
 }
 
 .profile-card,
@@ -240,7 +240,7 @@ img {
 
 @media (max-width: 360px) {
   .home-content {
-    grid-template-rows: 100px 108px 118px 106px 88px 92px 64px;
+    grid-template-rows: 105px 100px 110px 98px 82px 86px 60px;
   }
 
   .home-header {
@@ -440,9 +440,9 @@ img {
 @media (max-height: 843px) {
   .home-content {
     padding:
-      max(18px, env(safe-area-inset-top))
+      max(0px, env(safe-area-inset-top))
       16px
-      calc(72px + env(safe-area-inset-bottom));
+      calc(82px + env(safe-area-inset-bottom));
     gap: 4px;
   }
 }
