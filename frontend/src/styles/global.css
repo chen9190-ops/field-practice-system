@@ -87,13 +87,13 @@ button {
   z-index: 2;
   height: 100%;
   padding:
-    max(26px, env(safe-area-inset-top))
+    max(0px, env(safe-area-inset-top))
     16px
     calc(82px + env(safe-area-inset-bottom));
   display: grid;
-  grid-template-rows: 110px 108px 118px 106px 88px 92px 64px;
+  grid-template-rows: 105px 100px 110px 98px 82px 86px 60px;
   align-content: start;
-  gap: 7px;
+  gap: 4px;
 }
 
 .home-section {
