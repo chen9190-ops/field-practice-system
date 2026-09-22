@@ -1,5 +1,7 @@
 .student-login-page {
   isolation: isolate;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: #eee8d4;
 }
 
@@ -33,7 +35,7 @@
   top: clamp(72px, 12vh, 102px);
   left: 50%;
   z-index: 3;
-  width: 286px;
+  width: min(286px, calc(100% - 32px));
   height: 142px;
   transform: translateX(-50%);
 }
@@ -248,5 +250,16 @@
 
   .student-login-form__content {
     padding-top: 34px;
+  }
+}
+
+@media (max-width: 360px) {
+  .student-login-form {
+    width: calc(100% - 24px);
+  }
+
+  .student-login-form__content {
+    padding-right: 22px;
+    padding-left: 22px;
   }
 }

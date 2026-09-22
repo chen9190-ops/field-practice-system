@@ -9,7 +9,6 @@ import { MobilePageShell } from "../components/layout/MobilePageShell";
 import request from "../api/request";
 import {
   aiHelperFrog,
-  aiResultBackground,
   bulletLeaf,
   confidenceFill,
   confidenceTrack,
@@ -17,13 +16,13 @@ import {
   mineralIcon,
   photoFrame,
   resultBackIcon,
-  resultBottomTerrain,
   resultCard,
   resultDivider,
   resultShareIcon,
   retakeButton,
   saveButton,
 } from "../assets/ai-analysis-result";
+import { reportBackground } from "../assets/report";
 import "./AIAnalysisResultPage.css";
 import { useStudentAuth } from "../context/StudentAuthContext";
 import { createAIAnalysis } from "../api/observation";
@@ -220,7 +219,6 @@ export function AIAnalysisResultPage() {
   }, [analysis, analysisStatus, observationId, photoUrl, student.id]);
 
   const normalizedAnalysisStatus = String(analysisStatus || "").toLowerCase();
-  const analysisFailed = ["failed", "error"].includes(normalizedAnalysisStatus);
   const analysisProcessing = ["processing", "pending"].includes(normalizedAnalysisStatus);
   const analysisCompleted = ["completed", "success"].includes(normalizedAnalysisStatus);
 
@@ -236,6 +234,17 @@ export function AIAnalysisResultPage() {
     { title: "不确定性", value: cleanValue(analysis?.uncertainty), icon: bulletLeaf },
     { title: "AI建议", value: cleanValue(analysis?.suggestions), icon: bulletLeaf, collapsible: true },
   ].filter((item) => item.value);
+  const analysisHasUsableContent = Boolean(
+    rockName
+    || rockType
+    || studentReport
+    || analysisItems.length
+    || confidence != null,
+  );
+  const analysisIncomplete = analysisCompleted && !analysisHasUsableContent;
+  const analysisFailed = ["failed", "error"].includes(normalizedAnalysisStatus)
+    || analysisIncomplete;
+  const analysisSucceeded = analysisCompleted && analysisHasUsableContent;
 
   const handleShare = async () => {
     const shareData = {
@@ -316,7 +325,7 @@ export function AIAnalysisResultPage() {
     <MobilePageShell className="ai-result-page">
       <div
         className="ai-result-page__background"
-        style={{ backgroundImage: `url(${aiResultBackground})` }}
+        style={{ backgroundImage: `url(${reportBackground})` }}
         aria-hidden="true"
       />
       <div className="ai-result-page__scroll">
@@ -337,7 +346,11 @@ export function AIAnalysisResultPage() {
             <section className="ai-result-failed" role="alert">
               <img src={aiHelperFrog} alt="" aria-hidden="true" />
               <h2>AI分析失败</h2>
-              <p>本次分析未能完成，请重新尝试。</p>
+              <p>
+                {analysisIncomplete
+                  ? "本次分析没有返回有效结果，请重新尝试。"
+                  : "本次分析未能完成，请重新尝试。"}
+              </p>
               <button
                 type="button"
                 style={{ backgroundImage: `url(${saveButton})` }}
@@ -352,7 +365,7 @@ export function AIAnalysisResultPage() {
             </section>
           ) : analysisProcessing ? (
             <p className="ai-result-state" role="status">AI正在分析中，请稍后查看结果。</p>
-          ) : analysisCompleted && analysis ? (
+          ) : analysisSucceeded ? (
             <>
               <section
                 className="ai-result-summary"
@@ -431,6 +444,17 @@ export function AIAnalysisResultPage() {
               <div className="ai-result-actions">
                 <button
                   type="button"
+                  className="ai-result-actions__retry"
+                  style={{ backgroundImage: `url(${retakeButton})` }}
+                  onClick={handleRetryAnalysis}
+                  disabled={retryPending || !isOnline || !observationId}
+                >
+                  {retryPending
+                    ? "正在重新分析…"
+                    : isOnline ? "重新分析" : "重新分析（需联网）"}
+                </button>
+                <button
+                  type="button"
                   style={{ backgroundImage: `url(${retakeButton})` }}
                   onClick={handleRetake}
                 >
@@ -444,6 +468,7 @@ export function AIAnalysisResultPage() {
                   完成
                 </button>
               </div>
+              {retryError && <p className="ai-result-action-error" role="alert">{retryError}</p>}
             </>
           ) : (
             <p className="ai-result-state" role="status">
@@ -452,13 +477,6 @@ export function AIAnalysisResultPage() {
           )}
         </div>
       </div>
-
-      <img
-        className="ai-result-bottom-terrain"
-        src={resultBottomTerrain}
-        alt=""
-        aria-hidden="true"
-      />
     </MobilePageShell>
   );
 }

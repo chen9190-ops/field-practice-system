@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { autoCheckIn, getCheckin } from "../api/checkin";
 import { createAIAnalysis, getObservationRecords } from "../api/observation";
@@ -8,7 +8,6 @@ import request from "../api/request";
 import { backIcon } from "../assets/observation";
 import { BottomNav } from "../components/BottomNav";
 import { MobilePageShell } from "../components/layout/MobilePageShell";
-import { ElevationProfileChart } from "../components/map/ElevationProfileChart";
 import { GeologyInfoCard } from "../components/map/GeologyInfoCard";
 import { CheckinProgressBanner } from "../components/map/CheckinProgressBanner";
 import { ObservationInfoCard } from "../components/map/ObservationInfoCard";
@@ -30,6 +29,9 @@ import {
 } from "../offline/offlineStudentProgress";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
 import "./StudentRouteMapPage.css";
+
+const ElevationProfileChart = lazy(() => import("../components/map/ElevationProfileChart")
+  .then((module) => ({ default: module.ElevationProfileChart })));
 
 const EARTH_RADIUS_METERS = 6371008.8;
 const CHECKIN_RADIUS_METERS = 50;
@@ -1127,7 +1129,9 @@ export function StudentRouteMapPage() {
                 <div><dt>最低海拔</dt><dd>{Math.round(elevationProfileStats.minimum)}m</dd></div>
                 <div><dt>累计爬升</dt><dd>{Math.round(elevationProfileStats.ascent)}m</dd></div>
               </dl>
-              <ElevationProfileChart data={elevationProfile.data} />
+              <Suspense fallback={null}>
+                <ElevationProfileChart data={elevationProfile.data} />
+              </Suspense>
             </>
           )}
         </section>

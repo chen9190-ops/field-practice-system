@@ -29,8 +29,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
 }
+
+.profile-page__content::-webkit-scrollbar { display: none; }
 
 .profile-page__topbar {
   width: 100%;

@@ -1,0 +1,155 @@
+.student-observation-detail {
+  position: absolute;
+  z-index: 30;
+  right: 12px;
+  bottom: calc(88px + env(safe-area-inset-bottom));
+  left: 12px;
+  max-height: min(430px, calc(100% - 190px - env(safe-area-inset-bottom)));
+  overflow-y: auto;
+  border: 1px solid rgba(143, 127, 87, .32);
+  border-radius: 22px 22px 16px 16px;
+  background:
+    var(--student-observation-card-bg) center / 100% 100% no-repeat,
+    rgba(255, 249, 226, .97);
+  padding: 25px 22px 22px;
+  box-shadow: 0 -7px 24px rgba(66, 59, 39, .19);
+  color: #4f5144;
+}
+
+.student-observation-detail__close {
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(231, 224, 197, .85);
+  color: #68634f;
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.student-observation-detail__eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #3984c6;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.student-observation-detail h2 {
+  margin: 0 42px 15px 0;
+  color: #3f4437;
+  font-size: 19px;
+}
+
+.student-observation-detail dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.student-observation-detail dl div {
+  border-top: 1px dashed rgba(139, 121, 79, .35);
+  padding-top: 9px;
+}
+
+.student-observation-detail dt {
+  margin-bottom: 4px;
+  color: #7d754f;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.student-observation-detail dd {
+  margin: 0;
+  color: #575b4b;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.student-observation-detail figure {
+  margin: 14px 0 0;
+  padding: 7px;
+  border: 1px solid rgba(139, 121, 79, .28);
+  border-radius: 14px;
+  background: rgba(246, 238, 211, .75);
+}
+
+.student-observation-detail figure img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.student-observation-detail__ai {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+  border-top: 1px dashed rgba(139, 121, 79, .42);
+  padding-top: 13px;
+}
+
+.student-observation-detail__ai > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #766f50;
+  font-size: 12px;
+}
+
+.student-observation-detail__ai strong {
+  border-radius: 999px;
+  background: rgba(224, 232, 198, .78);
+  padding: 4px 9px;
+  color: #5d7042;
+  font-size: 12px;
+}
+
+.student-observation-detail__ai strong.is-sync-pending,
+.student-observation-detail__ai strong.is-sync-partial,
+.student-observation-detail__ai strong.is-ai-offline,
+.student-observation-detail__ai strong.is-ai-partial {
+  background: rgba(239, 218, 166, .66);
+  color: #80693b;
+}
+
+.student-observation-detail__ai strong.is-ai-failed {
+  background: rgba(229, 215, 185, .72);
+  color: #756346;
+}
+
+.student-observation-detail__ai button {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(91, 116, 57, .5);
+  border-radius: 13px;
+  background: #718b4b;
+  color: #fffaf0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.student-observation-detail__ai button:disabled {
+  border-color: rgba(116, 113, 88, .3);
+  background: #aaa991;
+  color: #f4f0df;
+  cursor: not-allowed;
+}
+
+.student-observation-detail__ai p {
+  margin: 0;
+  color: #856f48;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}

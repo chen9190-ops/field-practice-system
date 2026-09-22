@@ -5,6 +5,7 @@ import { createAIAnalysis, getAIAnalysis } from "../../api/observation";
 import request from "../../api/request";
 import { useStudentAuth } from "../../context/StudentAuthContext";
 import { useOnlineStatus } from "../../hooks/useOnlineStatus";
+import "./StudentObservationInfoCard.css";
 
 function formatCreatedAt(value) {
   if (!value) return "时间暂无";

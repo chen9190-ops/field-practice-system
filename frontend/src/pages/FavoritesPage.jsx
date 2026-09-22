@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import request from "../api/request";
 import { getFavoriteObservationRecords, toggleObservationFavorite } from "../api/observation";
@@ -10,13 +10,12 @@ import {
 } from "../assets/profile-ui";
 import { BottomNav } from "../components/BottomNav";
 import { MobilePageShell } from "../components/layout/MobilePageShell";
-import { StudentObservationInfoCard } from "../components/map/StudentObservationInfoCard";
 import { PaperCard } from "../components/PaperCard";
 import { useStudentAuth } from "../context/StudentAuthContext";
 import "./ProfilePage.css";
 import "./FavoritesPage.css";
 
-const FAVORITE_OBSERVATION_TYPES = new Set(["fixed", "free", "self"]);
+const FAVORITE_OBSERVATION_TYPES = new Set(["fixed", "checkin", "free", "self"]);
 
 function formatObservationTime(value) {
   if (!value) return "时间暂无";
@@ -46,7 +45,6 @@ export function FavoritesPage() {
   const { student } = useStudentAuth();
   const [records, setRecords] = useState([]);
   const [routeNames, setRouteNames] = useState({});
-  const [selectedRecord, setSelectedRecord] = useState(null);
   const [pendingIds, setPendingIds] = useState(() => new Set());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -97,18 +95,6 @@ export function FavoritesPage() {
     return () => { active = false; };
   }, [student.id]);
 
-  const selectedDetailRecord = useMemo(() => (
-    selectedRecord
-      ? {
-          ...selectedRecord,
-          observation_type: selectedRecord.observation_type === "self"
-            ? "free"
-            : selectedRecord.observation_type,
-          created_at: selectedRecord.created_at || selectedRecord.observation_time,
-        }
-      : null
-  ), [selectedRecord]);
-
   function handleBack() {
     if ((window.history.state?.idx || 0) > 0) {
       navigate(-1);
@@ -125,7 +111,6 @@ export function FavoritesPage() {
       const response = await toggleObservationFavorite(record.id);
       if (response.data?.is_favorite === false) {
         setRecords((current) => current.filter((item) => item.id !== record.id));
-        setSelectedRecord((current) => current?.id === record.id ? null : current);
       } else {
         setError("取消收藏未生效，请稍后重试");
       }
@@ -138,6 +123,23 @@ export function FavoritesPage() {
         return next;
       });
     }
+  }
+
+  function openAnalysisResult(record) {
+    const routeId = Number(record.route_id);
+    const query = new URLSearchParams({ observation_id: String(record.id) });
+    if (Number.isInteger(routeId) && routeId > 0) {
+      query.set("route_id", String(routeId));
+    }
+    navigate(`/analysis/result?${query.toString()}`, {
+      state: {
+        observationId: record.id,
+        photoUrl: resolvePhotoUrl(record.photo_url),
+        routeId: record.route_id,
+        studentId: student.id,
+        saveReturnTo: "/favorites",
+      },
+    });
   }
 
   return (
@@ -180,8 +182,8 @@ export function FavoritesPage() {
                 <button
                   type="button"
                   className="favorite-record__main"
-                  onClick={() => setSelectedRecord(record)}
-                  aria-label={`查看${getTypeLabel(record.observation_type)}详情`}
+                  onClick={() => openAnalysisResult(record)}
+                  aria-label={`查看${getTypeLabel(record.observation_type)}AI分析结果`}
                 >
                   {record.photo_url ? (
                     <img
@@ -228,17 +230,6 @@ export function FavoritesPage() {
         aria-hidden="true"
         draggable="false"
       />
-
-      {selectedDetailRecord && (
-        <div className="favorites-page__detail-backdrop" onMouseDown={() => setSelectedRecord(null)}>
-          <div className="favorites-page__detail" onMouseDown={(event) => event.stopPropagation()}>
-            <StudentObservationInfoCard
-              observation={selectedDetailRecord}
-              onClose={() => setSelectedRecord(null)}
-            />
-          </div>
-        </div>
-      )}
 
       <BottomNav activeId="profile" />
     </MobilePageShell>

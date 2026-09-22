@@ -4,12 +4,12 @@ import { MobilePageShell } from "../components/layout/MobilePageShell";
 import { createAIAnalysis, getAIAnalysis } from "../api/observation";
 import {
   aiHelperFrog,
-  aiResultBackground,
   confidenceFill,
   confidenceTrack,
   photoFrame,
-  resultBottomTerrain,
+  resultBackIcon,
 } from "../assets/ai-analysis-result";
+import { reportBackground } from "../assets/report";
 import "./AIAnalysisLoadingPage.css";
 import { useStudentAuth } from "../context/StudentAuthContext";
 
@@ -45,6 +45,12 @@ export function AIAnalysisLoadingPage() {
   const [message, setMessage] = useState("");
   const stage = analysisStages.find((item) => progress < item.limit)
     || analysisStages[analysisStages.length - 1];
+
+  const handleExit = () => {
+    const returnTo = flow.saveReturnTo
+      || (flow.routeId ? `/routes/${flow.routeId}/map` : "/observe");
+    navigate(returnTo, { replace: true });
+  };
 
   useEffect(() => {
     if (status !== "processing") {
@@ -148,9 +154,17 @@ export function AIAnalysisLoadingPage() {
     <MobilePageShell className="ai-loading-page">
       <div
         className="ai-loading-page__background"
-        style={{ backgroundImage: `url(${aiResultBackground})` }}
+        style={{ backgroundImage: `url(${reportBackground})` }}
         aria-hidden="true"
       />
+      <button
+        type="button"
+        className="ai-loading-exit"
+        onClick={handleExit}
+        aria-label="退出AI分析"
+      >
+        <img src={resultBackIcon} alt="" aria-hidden="true" />
+      </button>
       <main className="ai-loading-content">
         <div
           className={`ai-loading-photo${flow.photoUrl ? "" : " is-empty"}`}
@@ -192,12 +206,6 @@ export function AIAnalysisLoadingPage() {
           </section>
         )}
       </main>
-      <img
-        className="ai-loading-bottom-terrain"
-        src={resultBottomTerrain}
-        alt=""
-        aria-hidden="true"
-      />
     </MobilePageShell>
   );
 }
