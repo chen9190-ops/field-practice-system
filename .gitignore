@@ -43,3 +43,4 @@ backend/.venv/
 scripts/backend.log
 .cozeproj/reduction
 .codegraph
+field_practice_backup.sql
