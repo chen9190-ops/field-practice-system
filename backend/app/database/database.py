@@ -19,7 +19,11 @@ if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL 未配置")
 
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,
+    pool_recycle=300,
+)
 
 SessionLocal = sessionmaker(
     autocommit=False,
